@@ -1,12 +1,6 @@
 require File.expand_path(File.join(File.dirname(__FILE__), '../lib/tile.rb'))
 require File.expand_path(File.join(File.dirname(__FILE__), '../lib/cell.rb'))
 
-class Array
-  def every(n)
-    select {|x| index(x) % n == 0}
-  end
-end
-
 class Dungeon
   attr_reader :tiles, :width, :height, :cells
   CELLS = 5
@@ -16,6 +10,10 @@ class Dungeon
     @width = width
     @height = height
     @cells = []
+  end
+
+  def generate
+    build_grid
   end
 
   def max_cell_width

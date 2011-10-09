@@ -27,4 +27,12 @@ describe Dungeon do
       dungeon.cells.size.should == 32
     end
   end
+
+  describe 'generate' do
+    let(:dungeon) { Dungeon.new(20,40) }
+    it 'builds the grid structure' do
+      dungeon.should_receive(:build_grid)
+      dungeon.generate
+    end
+  end
 end
