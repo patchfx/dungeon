@@ -7,6 +7,10 @@ class Cell
     @occupied = false
   end
 
+  def occupied
+    @occupied = true
+  end
+
   def occupied?
     @occupied
   end

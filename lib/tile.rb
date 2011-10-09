@@ -2,8 +2,8 @@ class Tile
   attr_reader :x, :y
   attr_accessor :code
 
-  def initialize(x,y)
-    @code = '0'
+  def initialize(x,y,code='0')
+    @code = code
     @x = x
     @y = y
     @available = true

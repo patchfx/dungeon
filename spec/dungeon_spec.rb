@@ -34,5 +34,25 @@ describe Dungeon do
       dungeon.should_receive(:build_grid)
       dungeon.generate
     end
+
+    it 'builds the rooms' do
+      dungeon.should_receive(:build_rooms)
+      dungeon.generate
+    end
+  end
+
+  describe 'build rooms' do
+    let(:dungeon) { Dungeon.new(20,40) }
+    let(:room) { mock(:room, :build => nil) }
+
+    before do
+      dungeon.generate
+      Room.stub(:new => room)
+    end
+
+    it 'creates a new room' do
+      Room.should_receive(:new).at_least(:once)
+      dungeon.build_rooms
+    end
   end
 end
