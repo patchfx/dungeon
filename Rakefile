@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "dungeon"
   gem.homepage = "http://github.com/patchfx/dungeon"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Dungeon generation lib for roguelikes}
+  gem.description = %Q{Grid based dungeon generation lib for roguelikes.}
   gem.email = "richard@justaddpixels.com"
   gem.authors = ["Richard Patching"]
   # dependencies defined in Gemfile
