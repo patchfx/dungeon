@@ -26,6 +26,5 @@ describe Dungeon do
       dungeon.build_grid
       dungeon.cells.size.should == 32
     end
-
   end
 end
