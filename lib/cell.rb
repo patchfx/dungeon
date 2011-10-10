@@ -1,13 +1,13 @@
 class Cell
   CELLS = 5
-
+  attr_reader :tiles
   def initialize(x1,x2,y1,y2)
     @x1 = [x1.y, x1.x]
     @x2 = [x2.y, x2.x]
     @y1 = [y1.y, y1.x]
     @y2 = [y2.y, y2.x]
     @occupied = false
-    @tiles = Array.new(CELLS) { |x| Array.new(CELLS) { |x| nil } }
+    @tiles = Array.new(CELLS) { Array.new(CELLS) { nil } }
   end
 
   def add_tiles(tiles)
