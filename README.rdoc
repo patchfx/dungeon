@@ -1,6 +1,6 @@
 = dungeon
 
-Description goes here.
+Dungeon is a Ruby grid based roguelike dungeon generator.
 
 == Contributing to dungeon
  
