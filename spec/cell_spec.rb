@@ -1,8 +1,10 @@
 require File.expand_path(File.join(File.dirname(__FILE__), '../lib/dungeon.rb'))
 describe Cell do
   context 'creation' do
+    let(:tile) { mock(:tile, :x => 0, :y => 0) }
+
     it 'sets the cell to unoccupied' do
-      Cell.new([1,2],[2,3],[3,4],[4,5]).unoccupied?.should be_true
+      Cell.new(tile,tile,tile,tile).unoccupied?.should be_true
     end
   end
 end

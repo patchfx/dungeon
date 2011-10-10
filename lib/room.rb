@@ -6,10 +6,13 @@ class Room
     @width = width
     @height = height
     @cell = cell
-    @tiles = []
+  end
+
+  def code
+    '#'
   end
 
   def build
-    @tiles = Array.new(@height) { |y| Array.new(@width) { |x| Tile.new(x,y,'#')}}
+    @cell.add_room(self, @x, @y, @width, @height)
   end
 end

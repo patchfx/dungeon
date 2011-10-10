@@ -17,36 +17,17 @@ class Dungeon
   def generate
     build_grid
     build_rooms
+    self
   end
 
   def density
     return (@cells.size/1.2)
   end
 
-  def max_cell_width
-    CELLS - 1
-  end
-
-  def min_cell_height
-    CELLS - 1
-  end
-
-  def min_cell_width
-    min_cell_height
-  end
-
-  def max_cell_height
-    max_cell_width
-  end
-
   def build_grid
     (0..(@height - CELLS)).step(CELLS) do |x|
       (0..(@width - CELLS)).step(CELLS) do |y|
-        point_1 = [@tiles[x][y].y, @tiles[x][y].x]
-        point_2 = [@tiles[x+max_cell_width][y].y, @tiles[x+max_cell_width][y].x]
-        point_3 = [@tiles[x][y+max_cell_height].y, @tiles[x][y+max_cell_height].x]
-        point_4 = [@tiles[x+max_cell_width][y+max_cell_height].y, @tiles[x+max_cell_width][y+max_cell_height].x]
-        @cells << Cell.new(point_1, point_2, point_3, point_4)
+        @cells << Cell.build(x,y,@tiles)
       end
     end
   end
@@ -56,8 +37,8 @@ class Dungeon
     cells.each do |cell|
       room_width = random_room_width
       room_height = random_room_height
-      room_x = @seed.rand(0..(max_cell_width - room_width))
-      room_y = @seed.rand(0..(max_cell_height - room_height))
+      room_x = @seed.rand(0..(Cell.max_cell_width - room_width))
+      room_y = @seed.rand(0..(Cell.max_cell_height - room_height))
       Room.new(room_x, room_y, room_width, room_height, cell).build
       cell.occupied
     end
@@ -70,11 +51,11 @@ class Dungeon
   private
 
   def random_room_width
-    @seed.rand(min_cell_width..max_cell_width)
+    @seed.rand(Cell.min_cell_width..Cell.max_cell_width)
   end
 
   def random_room_height
-    @seed.rand(min_cell_height..max_cell_height)
+    @seed.rand(Cell.min_cell_height..Cell.max_cell_height)
   end
 
   def generate_random_seed(seed)
