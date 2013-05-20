@@ -1,4 +1,4 @@
-require File.expand_path(File.join(File.dirname(__FILE__), '../lib/dungeon.rb'))
+require_relative '../lib/dungeon.rb'
 
 describe Room do
   context 'build' do
