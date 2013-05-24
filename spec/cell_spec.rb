@@ -1,4 +1,5 @@
-require File.expand_path(File.join(File.dirname(__FILE__), '../lib/dungeon.rb'))
+require_relative '../lib/dungeon.rb'
+
 describe Cell do
   context 'creation' do
     let(:tile) { mock(:tile, :x => 0, :y => 0) }
